@@ -1,29 +1,39 @@
 const fs = require('fs');
 
 // Read from index.html
-fs.readFileSync('index.html', 'utf8');
+const readFile = filename => fs.readFileSync(filename, 'utf8');
+
+// Usage
+// console.log(readFile("index.html"));
 
 // Append to index.html
-fs.appendFileSync('index.html', "\n<p>It Works</p>");
+const appendFile = (filename, text) => fs.appendFileSync(filename, text);
+
+// Usage
+// appendFile("index.html"," <p>Test function</p>");
+
 
 // Create an empty file 
-const openSync = fs.closeSync(fs.openSync('test.txt', 'w'));
+const createFile = filename => fs.closeSync(fs.openSync(filename, 'w'));
 
+// Usage
+// createFile('file.txt');
 
 // Delete file
-const unlinkSync = function () {
+const unlinkSync =  (fileName) => {
     try {
-        fs.unlinkSync('test.txt');
+        fs.unlinkSync(fileName);
         console.log('file successfully deleted');
     } catch (err) {
         console.log(err);
     }
 }
-unlinkSync(); 
 
+// Usage
+// unlinkSync('file.txt');
 
 // Create folder
-const mkdirSync = function (dirPath) {
+const mkdirSync =  (dirPath) => {
     try {
       fs.mkdirSync(dirPath)
     } catch (err) {
@@ -31,4 +41,5 @@ const mkdirSync = function (dirPath) {
     }
 }
 
+// Usage
 // mkdirSync('./folder');
