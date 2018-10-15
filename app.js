@@ -1,13 +1,14 @@
 const fs = require('fs');
 
 // Read from index.html
-const readFileSync = fs.readFileSync('index.html', 'utf8');
+fs.readFileSync('index.html', 'utf8');
 
 // Append to index.html
-const appendFileSync = fs.appendFileSync('index.html', "\n<p>It Works</p>");
+fs.appendFileSync('index.html', "\n<p>It Works</p>");
 
 // Create an empty file 
-fs.closeSync(fs.openSync('test.txt', 'w'));
+const openSync = fs.closeSync(fs.openSync('test.txt', 'w'));
+
 
 // Delete file
 const unlinkSync = function () {
